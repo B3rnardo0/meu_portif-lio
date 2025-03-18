@@ -1,4 +1,4 @@
-name: deplay para paginas do Github
+name: deploy para paginas do Github
 
 on:
   push:
