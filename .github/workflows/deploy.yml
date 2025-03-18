@@ -12,17 +12,19 @@ jobs:
     steps:
       # 1. Verifica o repositório
       - name: Checar o repositório
-        uses: actions/checkout@v3  # Corrigido para a ação correta de checkout
+        uses: actions/checkout@v3  # Correto
 
       # 2. Configurar o GitHub Pages
       - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v3  # Correto
 
-      # 3. Cria ou prepara os arquivos para o deploy
-      - name: Criar os arquivos para Deploy
-        uses: actions/upload-pages-artifact@v2  # Corrigido o erro de digitação de "uploud" para "upload"
-        with:
-          path: ./build  # Especifique o caminho onde os arquivos estáticos são gerados (ajuste conforme seu projeto)
+      # 3. Construir o projeto (se necessário)
+      - name: Construir os arquivos para deploy
+        run: |
+          # Dependendo do seu projeto, execute os comandos para gerar os arquivos estáticos, como:
+          # npm install
+          # npm run build
+          # ou algo específico para o seu projeto
 
       # 4. Publicar no GitHub Pages
       - name: Publicar no GitHub Pages
