@@ -1,0 +1,24 @@
+name: deplay para paginas do Github
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    rush-on: ubuntu-latest
+
+steps:
+  name: Chega o repositorio
+  uses: actions/checkout-pages@v3
+
+  name: Configura GitHub Pages
+  uses: actions/configure-pages@v3
+
+  name: Cria os arquivos para Deploy
+  uses: actions/uploud-pages-artifact@v3
+  with:
+    path:
+
+  name: Publica no GitPages
+  uses: actions/deploy-pages@v1
