@@ -7,25 +7,33 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # Corrigido "rush-on" para "runs-on"
+    runs-on: ubuntu-latest
 
     steps:
       # 1. Verifica o repositório
       - name: Checar o repositório
-        uses: actions/checkout@v3  # Correto
+        uses: actions/checkout@v3
 
-      # 2. Configurar o GitHub Pages
+      # 2. Configurar GitHub Pages
       - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v3  # Correto
+        uses: actions/configure-pages@v3
 
       # 3. Construir o projeto (se necessário)
       - name: Construir os arquivos para deploy
         run: |
-          # Dependendo do seu projeto, execute os comandos para gerar os arquivos estáticos, como:
+          # Adicione aqui os comandos específicos para o seu projeto
+          # Exemplo para projetos Node.js:
           # npm install
           # npm run build
-          # ou algo específico para o seu projeto
+          
+          # Ou para projetos Jekyll:
+          # bundle install
+          # bundle exec jekyll build
 
       # 4. Publicar no GitHub Pages
       - name: Publicar no GitHub Pages
         uses: actions/deploy-pages@v1
+        with:
+          # Defina o caminho dos arquivos estáticos se necessário
+          # Exemplo:
+          # folder: ./dist ou ./public, dependendo de onde seu projeto gera os arquivos
