@@ -21,19 +21,22 @@ jobs:
       # 3. Construir o projeto (se necessário)
       - name: Construir os arquivos para deploy
         run: |
-          # Adicione aqui os comandos específicos para o seu projeto
           # Exemplo para projetos Node.js:
-          # npm install
-          # npm run build
+          # Instala as dependências e gera os arquivos estáticos
+          npm install
+          npm run build
           
-          # Ou para projetos Jekyll:
+          # Exemplo para projetos Jekyll:
+          # Se o seu projeto for baseado no Jekyll, use:
           # bundle install
           # bundle exec jekyll build
+          
+          # Caso o projeto não precise de construção, você pode omitir este passo.
 
       # 4. Publicar no GitHub Pages
       - name: Publicar no GitHub Pages
         uses: actions/deploy-pages@v1
         with:
-          # Defina o caminho dos arquivos estáticos se necessário
-          # Exemplo:
-          # folder: ./dist ou ./public, dependendo de onde seu projeto gera os arquivos
+          # Defina o caminho para os arquivos estáticos gerados
+          # Caso você tenha uma pasta chamada 'build' ou 'dist', adicione o caminho aqui:
+          folder: ./build   # Altere para 'dist', 'public' ou a pasta que seu projeto gera os arquivos
